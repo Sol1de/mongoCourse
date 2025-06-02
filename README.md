@@ -11,8 +11,18 @@
 - Docker
 
 ### Lancement de l'application
+- On commence par lancer docker
 ```bash
 docker exec -it mongo mongosh "mongodb://root:root@localhost:27017"
+```
+- Ensuite on lance le serveur Express
+```bash
+npm run dev
+```
+- Ou si on met le projet en production
+```bash
+npm run build
+npm run start
 ```
 
 ## Structure de la Base de Données
