@@ -1,13 +1,10 @@
 import { Router, Request, Response, NextFunction } from "express";
+import timeLog from '#middleware/timeLog';
 
 const router = Router();
 
 //middleware
-const timeLog = (req: Request, res: Response, next: NextFunction) => {
-  console.log('Time: ', Date.now())
-  next()
-}
-router.use(timeLog)
+router.use(timeLog);
 
 //routes
 router.get('/', (req, res) => {
