@@ -9,7 +9,6 @@
 
 ### Prérequis
 - Docker
-- Docker Compose
 
 ### Lancement de l'application
 ```bash
