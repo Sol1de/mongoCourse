@@ -1,10 +1,11 @@
 import { Router, Request, Response, NextFunction } from "express";
 import timeLog from '#middleware/timeLog';
+import pageSwitch from '#middleware/pageSwitch';
 
 const router = Router();
 
 //middleware
-router.use(timeLog);
+router.use(pageSwitch, timeLog);
 
 //routes
 router.get('/', (req, res) => {
