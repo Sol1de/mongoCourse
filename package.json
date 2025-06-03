@@ -9,7 +9,7 @@
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "seed:all": "tsx src/seeder/seeder.ts",
-    "seed": "tsx src/scripts/seed.ts"
+    "seed": "tsx src/seeders/seeder.ts"
   },
   "repository": {
     "type": "git",

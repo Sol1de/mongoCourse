@@ -12,7 +12,7 @@ const PORT = process.env.PORT;
 app.use(Routes)
 
 app.listen(PORT, () => {
-  console.log(chalk.green("Server running at PORT: "), chalk.blue(PORT)); 
+  console.log(chalk.blue("Server running at PORT: ", (PORT))); 
   dbConnexion();
 }).on("error", (error) => {
   // gracefully handle error
