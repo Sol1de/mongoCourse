@@ -1,4 +1,4 @@
-import express, { Request, Response } from "express";
+import express from "express";
 import dotenv from "dotenv";
 import Routes from "./routes";
 import dbConnexion from "#database/dbConnexion"
@@ -7,10 +7,12 @@ import chalk from "chalk";
 dotenv.config();
 const app = express();
 
-const PORT = process.env.PORT;
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use(Routes)
 
+const PORT = process.env.PORT ?? 3000;
 app.listen(PORT, () => {
   console.log(chalk.blue("Server running at PORT: ", (PORT))); 
   dbConnexion();
@@ -18,3 +20,5 @@ app.listen(PORT, () => {
   // gracefully handle error
   throw new Error(chalk.red(error.message));
 });
+
+export default app;
