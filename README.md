@@ -9,13 +9,18 @@
 
 ### Prérequis
 - Docker
+- Node
 
-### Lancement de l'application
+### Lancement du projet
 - On commence par lancer docker
 ```bash
-docker exec -it mongo mongosh "mongodb://root:root@localhost:27017"
+docker compose up --build
 ```
-- Ensuite on lance le serveur Express
+- On installe ensuite les dépendances du projet
+```bash
+npm install
+```
+- Puis on lance le serveur express
 ```bash
 npm run dev
 ```
@@ -24,6 +29,29 @@ npm run dev
 npm run build
 npm run start
 ```
+- Pour seeder la base de donnée
+```bash
+npm run seed
+```
+
+## Troubleshooting
+
+### Authentication failed
+Si lors du demarrage de votre démarrage du projet vous ne parvenez pas à vous connecter à mongoDb,
+il vous faut dabord terminer puis supprimer vos conteneurs et les volumes associés
+```bash
+docker compose down -v
+```
+Vous aurez aussi besoin de terminé votre serveur express. Par la suite demarrez à nouveau votre docker puis relancé votre serveur express
+```bash
+docker compose up --build
+npm run dev
+```
+il ne vous restera plus qu'a seed votre database
+```bash
+npm run seed
+```
+Et voila votre problème devrait être résolu !
 
 ## Structure de la Base de Données
 
@@ -34,7 +62,7 @@ npm run start
 | Title | String | Titre du document |
 | Author | String | Auteur du document |
 | Edition | String | Édition du document |
-| Type | String | Type de document |
+| Type | Enum | Type de document |
 | Lang | String | Langue du document |
 | Summary | String | Résumé du document |
 | ISBN | String | Numéro ISBN |
