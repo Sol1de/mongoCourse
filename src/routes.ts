@@ -1,7 +1,14 @@
+import {
+    getAllAuteurs,
+} from "#config/controllers/authorController";
+import {
+    createBook,
+    deleteBook,
+    getAllBooks,
+} from "#config/controllers/bookController";
+import pageSwitch from "#middleware/pageSwitch";
+import timeLog from "#middleware/timeLog";
 import { Router } from "express";
-import timeLog from '#middleware/timeLog';
-import pageSwitch from '#middleware/pageSwitch';
-import { getAllBooks, deleteBook, createBook } from '#config/controllers/bookController';
 
 const router = Router();
 
@@ -9,16 +16,20 @@ const router = Router();
 router.use(pageSwitch, timeLog);
 
 //routes
-router.get('/', (req, res) => {
-  res.send('Hello World')
-})
+router.get("/", (req, res) => {
+    res.send("Hello World");
+});
 
-router.get('/books', getAllBooks);
-router.delete('/books/:id', deleteBook);
-router.post('/books', createBook);
+// Routes pour les livres
+router.get("/books", getAllBooks);
+router.delete("/books/:id", deleteBook);
+router.post("/books", createBook);
 
-router.get('/about', (req, res) => {
-  res.send('About Us')
-})
+// Routes pour les auteurs
+router.get("/auteur", getAllAuteurs);
 
-export default router
+router.get("/about", (req, res) => {
+    res.send("About Us");
+});
+
+export default router;
