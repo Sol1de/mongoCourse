@@ -1,13 +1,13 @@
 import { faker } from '@faker-js/faker';
 import { BookModel } from '#models/bookModel';
 import { BookType } from '#enums/bookEnum';
-import seederConnection from './seederConnection';
+import seederConnection from '#database/seederConnection';
+import chalk from 'chalk';
 
 export const seedBooks = async () => {
     try {
         await seederConnection();
         
-        // Clear existing books
         await BookModel.deleteMany({});
 
         const books = Array.from({ length: 20 }, () => ({
@@ -22,9 +22,9 @@ export const seedBooks = async () => {
         }));
 
         await BookModel.insertMany(books);
-        console.log('✅ Books seeded successfully');
+        console.log(chalk.green('Books seeded successfully'));
     } catch (error) {
-        console.error('❌ Error seeding books:', error);
+        console.error(chalk.red('Error seeding books:', error));
         throw error;
     }
 }; 

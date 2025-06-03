@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import chalk from 'chalk';
 
 // Load environment variables
 dotenv.config();
@@ -11,9 +12,9 @@ const seederConnection = async () => {
   await mongoose.connect(mongoUrl, {
     dbName: dbName
   }).then(() => {
-    console.log('Connected to MongoDB');
+    console.log(chalk.green('Connected to MongoDB'));
   }).catch((error) => {
-    console.log('Error connecting to MongoDB: ', error);
+    console.log(chalk.red('Error connecting to MongoDB: '), error);
     process.exit(1);
   });
 }
