@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 import Routes from "./routes";
-import dbConnexion from "#dbConnexion"
+import dbConnexion from "#database/dbConnexion"
 
 // configures dotenv to work in your application
 dotenv.config();
