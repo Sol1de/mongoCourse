@@ -7,7 +7,9 @@
     "start": "node dist/index.js",
     "dev": "tsx src/index.ts",
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed:all": "tsx src/seeder/seeder.ts",
+    "seed": "tsx src/scripts/seed.ts"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
   },
   "homepage": "https://github.com/Sol1de/mongoCourse#readme",
   "devDependencies": {
+    "@faker-js/faker": "^9.8.0",
     "@types/dotenv": "^6.1.1",
     "@types/express": "^5.0.2",
     "@types/node": "^20.11.24",

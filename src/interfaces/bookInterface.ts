@@ -8,27 +8,27 @@ import { BookType } from "#enums/bookEnum";
     },
 })
 export class Book {
-    @prop({ required: true })
+    @prop({ type: () => [String], required: true })
     public title!: string;
   
-    @prop({ required: true })
+    @prop({ type: () => [String], required: true })
     public author!: string;
 
-    @prop()
+    @prop({ type: () => [String] })
     public edition?: string;
 
-    @prop({ enum: BookType, required: true })
+    @prop({ type: () => [String], enum: BookType, required: true })
     public type!: BookType;
 
-    @prop()
+    @prop({ type: () => [String] })
     public lang?: string;
 
-    @prop()
+    @prop({ type: () => [String] })
     public summary?: string;
 
-    @prop({ required: true })
+    @prop({ type: () => [String], required: true })
     public isbn!: string;
 
-    @prop()
+    @prop({ type: () => [Date] })
     public parutionDate?: Date;
 }
