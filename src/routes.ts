@@ -1,7 +1,7 @@
 import { Router } from "express";
 import timeLog from '#middleware/timeLog';
 import pageSwitch from '#middleware/pageSwitch';
-import { getAllBooks, deleteBook, createBook } from '#config/controllers/bookController';
+import { getAllBooks, createBook, deleteBook, searchBooks } from '#config/controllers/bookController';
 
 const router = Router();
 
@@ -14,6 +14,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/books', getAllBooks);
+router.get('/books/search', searchBooks);
 router.delete('/books/:id', deleteBook);
 router.post('/books', createBook);
 

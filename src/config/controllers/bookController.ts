@@ -35,7 +35,37 @@ export const getAllBooks = async (req: Request, res: Response) => {
     res.status(500).json({ lieu: 'bookController', message: error.message });
   }
 };
+/**
+ * Recherche des livres selon différents critères
+ */
+export const searchBooks = async (req: Request, res: Response) => {
+  try {
+    const filters: any = {};
 
+    const { title, author, edition, type, lang, summary, isbn, parutionDate } = req.query;
+
+    if (title) filters.title = { $regex: title, $options: 'i' };
+    if (author) filters.author = { $regex: author, $options: 'i' };
+    if (edition) filters.edition = { $regex: edition, $options: 'i' };
+    if (type) filters.type = type;
+    if (lang) filters.lang = { $regex: lang, $options: 'i' };
+    if (summary) filters.summary = { $regex: summary, $options: 'i' };
+    if (isbn) filters.isbn = { $regex: isbn, $options: 'i' };
+    if (parutionDate) filters.parutionDate = parutionDate;
+
+    const books = await BookModel.find(filters);
+
+    res.status(200).json({
+      count: books.length,
+      books
+    });
+  } catch (error: any) {
+    res.status(500).json({
+      lieu: 'bookController - searchBooks',
+      message: error.message
+    });
+  }
+};
 /**
  * Supprime un livre par son ID
  */
