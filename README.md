@@ -1,6 +1,6 @@
 # Mongo Course
 
-## Contributeurs
+## Contributeurs du groupe 8
 * Alexy DE BARROS
 * Yani BOUGARA
 * Olivier DELMAS
