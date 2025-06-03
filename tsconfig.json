@@ -39,7 +39,8 @@
       "#enums/*": ["src/enums/*.ts", "src/enums/*.js"],
       "#interfaces/*": ["src/interfaces/*.ts", "src/interfaces/*.js"],
       "#models/*": ["src/models/*.ts", "src/models/*.js"],
-      "#schemas/*": ["src/schemas/*.ts", "src/schemas/*.js"]
+      "#schemas/*": ["src/schemas/*.ts", "src/schemas/*.js"],
+      "#seeders/*": ["src/seeders/*.ts", "src/seeders/*.js"]
     },
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
     // "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */

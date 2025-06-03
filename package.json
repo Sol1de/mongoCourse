@@ -8,8 +8,7 @@
     "dev": "tsx src/index.ts",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "seed:all": "tsx src/seeder/seeder.ts",
-    "seed": "tsx src/scripts/seed.ts"
+    "seed": "tsx src/seeders/seeder.ts"
   },
   "repository": {
     "type": "git",
@@ -33,6 +32,7 @@
   },
   "dependencies": {
     "@typegoose/typegoose": "^12.16.0",
+    "chalk": "^5.4.1",
     "dotenv": "^16.4.5",
     "express": "^4.18.3",
     "mongoose": "^8.15.1"
