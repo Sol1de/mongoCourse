@@ -1,5 +1,6 @@
 import { seedBooks } from '#seeders/bookSeeder';
 import { seedLibraries } from '#seeders/librarySeeder';
+import { seedUsers } from '#seeders/userSeeder';
 import chalk from 'chalk';
 
 const runSeeders = async () => {
@@ -8,6 +9,7 @@ const runSeeders = async () => {
         
         await seedBooks();
         await seedLibraries();
+        await seedUsers();
         
         console.log(chalk.green('All seeders completed successfully'));
         process.exit(0);
